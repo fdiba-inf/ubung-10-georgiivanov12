@@ -13,7 +13,7 @@ public class Rectangle extends Figure {
         super(otherRectangle.startPoint, otherRectangle.side1, otherRectangle.side2);
     }
 
-    @Override
+
     public double calculatePerimeter() {
         return side1 * 2 + side2 * 2;
     }
@@ -37,9 +37,14 @@ public class Rectangle extends Figure {
         }
     }
 
-    @Override
-    public boolean containsClick(Point click) {
-        // Check if click point is inside the rectangle
-        return false;
-    }
-}
+      public boolean containsClick(Point click){
+      boolean check1 = click.getX() >= startPoint.getX();
+      boolean check2 = click.getX() <= (startPoint.getX() + side1);
+      boolean check3 = click.getY() >= startPoint.getY();
+      boolean check4 = click.getY() <= (startPoint.getY() + side2);
+     
+      
+        return check1 && check2 && check3 && check4;
+      }
+
+  
